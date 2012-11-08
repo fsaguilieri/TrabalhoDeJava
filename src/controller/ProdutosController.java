@@ -4,6 +4,8 @@ import java.util.Map;
 
 import javax.swing.JDialog;
 
+import dao.ProdutoDAO;
+
 import model.entity.Produto;
 import model.factories.ProdutoFactory;
 
@@ -20,6 +22,8 @@ public class ProdutosController {
 	
 	public static void create(ProdutoVO vo) {
 		Produto novoProduto = ProdutoFactory.getProdutoByVO(vo);
+		ProdutoDAO dao = new ProdutoDAO();
+		dao.commit(novoProduto);
 	}
 	
 	public static void update() {}
