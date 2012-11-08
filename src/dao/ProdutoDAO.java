@@ -4,9 +4,8 @@ import model.entity.Produto;
 
 public class ProdutoDAO {
 
-	public boolean commit(Produto produto) {
+	public void save(Produto produto) {
 		ProdutoRepository.getInstance().add(produto);		
-		return true;
 	}
 
 }

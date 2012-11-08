@@ -9,13 +9,14 @@ public class ProdutoRepository {
 
 	private static ProdutoRepository repo;
 	private List<Produto> produtos;
-	
+
 	private ProdutoRepository() {
 		this.produtos = new ArrayList<Produto>();
 	}
 
 	public static ProdutoRepository getInstance() {
-		if (repo == null) repo = new ProdutoRepository();
+		if (repo == null)
+			repo = new ProdutoRepository();
 		return repo;
 	}
 
