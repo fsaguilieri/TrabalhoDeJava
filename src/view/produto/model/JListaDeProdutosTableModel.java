@@ -36,6 +36,7 @@ public class JListaDeProdutosTableModel extends DefaultTableModel {
 	}
 	
 	public Object getValueAt(int row, int column) {
+		ProdutoVO p = this.listaDeProdutos.get(row);
 		return "";
 	}
 	
