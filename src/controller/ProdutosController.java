@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.List;
+
 import javax.swing.JDialog;
 
 import model.entity.Produto;
@@ -19,7 +21,7 @@ public class ProdutosController {
 
 	public static void create(ProdutoVO vo) {
 		Produto novoProduto = ProdutoFactory.getProdutoByVO(vo);
-		ProdutoDAO dao = new ProdutoDAO();
+		ProdutoDAO dao = ProdutoDAO.getInstance();
 		dao.save(novoProduto);
 	}
 
@@ -32,5 +34,9 @@ public class ProdutosController {
 	public static void list() {
 		JDialog view = new view.produto.Lista();
 		view.setVisible(true);
+	}
+	
+	public static List<ProdutoVO> getAllProdutos() {
+		return ProdutoDAO.getInstance().list();
 	}
 }

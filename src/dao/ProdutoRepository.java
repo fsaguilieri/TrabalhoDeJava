@@ -3,6 +3,8 @@ package dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import view.vo.ProdutoVO;
+
 import model.entity.Produto;
 
 public class ProdutoRepository {
@@ -22,6 +24,10 @@ public class ProdutoRepository {
 
 	public void add(Produto produto) {
 		this.produtos.add(produto);
+	}
+
+	public List<Produto> getAll() {
+		return this.produtos;
 	}
 
 }
