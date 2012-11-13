@@ -9,6 +9,7 @@ import model.factories.ProdutoFactory;
 
 public class ProdutoDAO {
 	private static ProdutoDAO instance;
+	//What Hell????
 	
 	private ProdutoDAO() {}
 	

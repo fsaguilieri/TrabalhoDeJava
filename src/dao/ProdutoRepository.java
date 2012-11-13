@@ -7,8 +7,9 @@ import model.entity.Produto;
 
 public class ProdutoRepository {
 	private static Integer id = 67;
-	private static ProdutoRepository repo;
-	private List<Produto> produtos;
+	private Integer frank = 0;
+	private List<Produto> produto;
+	//pissiroca
 
 	private ProdutoRepository() {
 		this.produtos = new ArrayList<Produto>();
