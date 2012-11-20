@@ -16,7 +16,15 @@ public class ProdutosController {
 		view.setVisible(true);
 	}
 
-	public static void edit() {
+	public static void edit(String id) {
+		ProdutoDAO dao = ProdutoDAO.getInstance();
+		try {
+			ProdutoVO vo = dao.getById(new Integer(id));
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	public static void create(ProdutoVO vo) {
@@ -25,7 +33,7 @@ public class ProdutosController {
 		dao.save(novoProduto);
 	}
 
-	public static void update() {
+	public static void update(ProdutoVO vo) {
 	}
 
 	public static void destroy() {

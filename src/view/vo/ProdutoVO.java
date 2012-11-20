@@ -3,6 +3,7 @@ package view.vo;
 import java.math.BigDecimal;
 
 public class ProdutoVO {
+	private Integer id;
 	private String descricao;
 	private BigDecimal valor;
 	private Integer quantidade;
@@ -24,5 +25,11 @@ public class ProdutoVO {
 	}
 	public void setQuantidade(Integer quantidade) {
 		this.quantidade = quantidade;
+	}
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
 	}
 }

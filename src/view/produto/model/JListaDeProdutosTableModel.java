@@ -1,5 +1,6 @@
 package view.produto.model;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import javax.swing.table.DefaultTableModel;
@@ -8,11 +9,8 @@ import view.vo.ProdutoVO;
 import controller.ProdutosController;
 
 public class JListaDeProdutosTableModel extends DefaultTableModel {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
-	private static final String[] nomesDasColunas = new String[]{"Descricao", "Quantidade", "Valor"};
+	private static final String[] nomesDasColunas = new String[]{"Id", "Descricao", "Quantidade", "Valor"};
 	private List<ProdutoVO> listaDeProdutos;
 	
 	public JListaDeProdutosTableModel() {
@@ -32,19 +30,35 @@ public class JListaDeProdutosTableModel extends DefaultTableModel {
 	
 	private void atualizarDados() {
 		this.listaDeProdutos = ProdutosController.getAllProdutos();
-		fireTableStructureChanged();
+		fireTableDataChanged();
 	}
 	
 	public Object getValueAt(int row, int column) {
 		ProdutoVO p = this.listaDeProdutos.get(row);
-		return "";
+		switch(column) {
+			case 0: return p.getId();
+			case 1: return p.getDescricao();
+			case 2: return p.getQuantidade();
+			case 3: return p.getValor();
+			default: return "";
+		}
 	}
 	
 	public String getColumnName(int column) {
-		return this.nomesDasColunas[column];
+		return nomesDasColunas[column];
 	}
 	
-	public Class<?> getColumnClass(int columnIndex) {
-		return String.class;
+	public Class<?> getColumnClass(int column) {
+		switch(column) {
+			case 0: return Integer.class;
+			case 1: return String.class;
+			case 2: return Integer.class;
+			case 3: return BigDecimal.class;
+			default: return Object.class;
+		}
+	}
+	
+	public boolean isCellEditable(int row, int column) {
+		return false;
 	}
 }

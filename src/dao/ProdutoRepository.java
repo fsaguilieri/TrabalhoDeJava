@@ -3,12 +3,10 @@ package dao;
 import java.util.ArrayList;
 import java.util.List;
 
-import view.vo.ProdutoVO;
-
 import model.entity.Produto;
 
 public class ProdutoRepository {
-
+	private static Integer id = 67;
 	private static ProdutoRepository repo;
 	private List<Produto> produtos;
 
@@ -23,11 +21,22 @@ public class ProdutoRepository {
 	}
 
 	public void add(Produto produto) {
+		produto.setId(id);
+		id++;
 		this.produtos.add(produto);
 	}
 
 	public List<Produto> getAll() {
 		return this.produtos;
+	}
+
+	public Produto getById(Integer id) throws Exception {
+		for(Produto p : this.produtos) {
+			if(p.getId() == id) {
+				return p;
+			}
+		}
+		throw new Exception("Produto não encontrado");
 	}
 
 }

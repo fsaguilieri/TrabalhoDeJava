@@ -21,6 +21,10 @@ public class ProdutoDAO {
 	public void save(Produto produto) {
 		ProdutoRepository.getInstance().add(produto);		
 	}
+	
+	public ProdutoVO getById(Integer id) throws Exception {
+		return ProdutoFactory.beanToVO(ProdutoRepository.getInstance().getById(id));
+	}
 
 	public List<ProdutoVO> list() {
 		List<Produto> produtos = ProdutoRepository.getInstance().getAll();
